@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\APICatalogue\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{995711C3-52FA-4137-9A4E-093EF10B1DAB}|APICatalogue\\APICatalogue.csproj|c:\\users\\filipe.silva\\documentos\\asp_net_core\\codes\\apicatalogue\\apicatalogue\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{995711C3-52FA-4137-9A4E-093EF10B1DAB}|APICatalogue\\APICatalogue.csproj|solutionrelative:apicatalogue\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{995711C3-52FA-4137-9A4E-093EF10B1DAB}|APICatalogue\\APICatalogue.csproj|c:\\users\\filipe.silva\\documentos\\asp_net_core\\codes\\apicatalogue\\apicatalogue\\migrations\\20251212094429_fillproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{995711C3-52FA-4137-9A4E-093EF10B1DAB}|APICatalogue\\APICatalogue.csproj|solutionrelative:apicatalogue\\migrations\\20251212094429_fillproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{995711C3-52FA-4137-9A4E-093EF10B1DAB}|APICatalogue\\APICatalogue.csproj|c:\\users\\filipe.silva\\documentos\\asp_net_core\\codes\\apicatalogue\\apicatalogue\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{995711C3-52FA-4137-9A4E-093EF10B1DAB}|APICatalogue\\APICatalogue.csproj|solutionrelative:apicatalogue\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,27 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\APICatalogue\\APICatalogue\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "APICatalogue\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\APICatalogue\\APICatalogue\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "APICatalogue\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\APICatalogue\\APICatalogue\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "APICatalogue\\Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\APICatalogue\\APICatalogue\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "APICatalogue\\Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwD0AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T10:34:26.2Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20251212094429_FillProducts.cs",
-              "DocumentMoniker": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\APICatalogue\\APICatalogue\\Migrations\\20251212094429_FillProducts.cs",
-              "RelativeDocumentMoniker": "APICatalogue\\Migrations\\20251212094429_FillProducts.cs",
-              "ToolTip": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\APICatalogue\\APICatalogue\\Migrations\\20251212094429_FillProducts.cs",
-              "RelativeToolTip": "APICatalogue\\Migrations\\20251212094429_FillProducts.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T09:44:37.193Z",
+              "WhenOpened": "2025-12-12T12:01:03.012Z",
               "EditorCaption": ""
             }
           ]

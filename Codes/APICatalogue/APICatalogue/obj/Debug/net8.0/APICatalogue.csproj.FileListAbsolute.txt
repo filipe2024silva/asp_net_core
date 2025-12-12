@@ -135,3 +135,5 @@ C:\Users\filipe.silva\Documentos\asp_net_core\Codes\APICatalogue\APICatalogue\ob
 C:\Users\filipe.silva\Documentos\asp_net_core\Codes\APICatalogue\APICatalogue\obj\Debug\net8.0\APICatalogue.pdb
 C:\Users\filipe.silva\Documentos\asp_net_core\Codes\APICatalogue\APICatalogue\obj\Debug\net8.0\APICatalogue.genruntimeconfig.cache
 C:\Users\filipe.silva\Documentos\asp_net_core\Codes\APICatalogue\APICatalogue\obj\Debug\net8.0\ref\APICatalogue.dll
+C:\Users\filipe.silva\Documentos\asp_net_core\Codes\APICatalogue\APICatalogue\obj\Debug\net8.0\APICatalogue.sourcelink.json
+C:\Users\filipe.silva\Documentos\asp_net_core\Codes\APICatalogue\APICatalogue\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
