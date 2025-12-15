@@ -1,8 +1,11 @@
-﻿using Context;
-using Microsoft.AspNetCore.Http;
+﻿using APICatalogue.Filters;
+using Repositories;
+using Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Models;
+using APICatalogue.DTOs.Mappings;
+using DTOs;
 
 namespace APICatalogue.Controllers
 {
@@ -10,80 +13,89 @@ namespace APICatalogue.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CategoriesController(AppDbContext context)
+        public CategoriesController(IUnitOfWork unitOfWork)
         {
-            _context = context;
-        }
-
-        [HttpGet("products")]
-        public ActionResult<IEnumerable<Category>> GetCategoriesProducts()
-        {
-            return _context.Categories.Include(p => p.Products).ToList();
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Category>> Get()
+        public ActionResult<IEnumerable<CategoryDTO>> Get()
         {
-            var categories = _context.Categories.AsNoTracking().ToList();
+            var categories = _unitOfWork.CategoryRepository.GetAll();
+
             if (categories is null)
             {
                 return NotFound("Categories not found");
             }
-            return categories;
+            var categoryDTO = categories.ToCategoryDTOList();
+
+            return Ok(categoryDTO);
         }
 
-
         [HttpGet("{id:int:min(1)}", Name = "GetCategory")]
-        public ActionResult<Category> Get(int id)
+        public ActionResult<CategoryDTO> Get(int id)
         {
-            var category = _context.Categories?.FirstOrDefault(p => p.Id == id);
+            var category = _unitOfWork.CategoryRepository.Get(c => c.Id == id);
 
             if (category is null)
             {
                 return NotFound("Category not found");
             }
-            return Ok(category);
+            var categoryDTO = category.ToCategoryDTO();
+
+            return Ok(categoryDTO);
         }
 
         [HttpPost]
-        public ActionResult Post(Category category)
+        public ActionResult<CategoryDTO> Post(CategoryDTO categoryDTO)
         {
-            if (category is Category)
+            if (categoryDTO is null)
                 return BadRequest();
 
-            _context.Categories.Add(category);
-            _context.SaveChanges();
+            var category = categoryDTO.ToCategory();
 
-            return new CreatedAtRouteResult("GetCategory", new { id = category.Id }, category);
+            var categoryCreated = _unitOfWork.CategoryRepository.Create(category);
+            _unitOfWork.Commit();
+
+            var categoryCreatedDTO = categoryCreated.ToCategoryDTO();
+
+            return new CreatedAtRouteResult("GetCategory", new { id = categoryCreatedDTO.Id }, categoryCreatedDTO);
         }
 
         [HttpPut("{id:int:min(1)}")]
-        public ActionResult Put(int id, Category category)
+        public ActionResult<CategoryDTO> Put(int id, CategoryDTO categoryDTO)
         {
-            if (id != category.Id)
+            if (id != categoryDTO.Id)
                 return BadRequest();
 
-            _context.Entry(category).State = EntityState.Modified;
-            _context.SaveChanges();
+            var category = categoryDTO.ToCategory();
 
-            return Ok(category);
+            var updatedCategory = _unitOfWork.CategoryRepository.Update(category);
+            _unitOfWork.Commit();
+
+            var categoryUpdatedDTO = updatedCategory.ToCategoryDTO();
+
+            return Ok(categoryUpdatedDTO);
         }
 
         [HttpDelete("{id:int:min(1)}")]
-        public ActionResult Delete(int id)
+        public ActionResult<CategoryDTO> Delete(int id)
         {
-            var category = _context.Categories?.FirstOrDefault(p => p.Id == id);
+            var category = _unitOfWork.CategoryRepository.Get(c => c.Id == id);
 
             if (category is null)
             {
                 return NotFound("Category not found");
             }
-            _context.Categories?.Remove(category);
-            _context.SaveChanges();
 
-            return Ok(category);
+            var deletedCategory = _unitOfWork.CategoryRepository.Delete(category);
+            _unitOfWork.Commit();
+
+            var deletedCategoryDTO = deletedCategory.ToCategoryDTO();
+
+            return Ok(deletedCategoryDTO);
         }
     }
 }

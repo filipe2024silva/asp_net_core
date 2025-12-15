@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Models;
+using Repositories;
 
 namespace APICatalogue.Controllers
 {
@@ -11,22 +12,40 @@ namespace APICatalogue.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly AppDbContext _context;
-        public ProductsController(AppDbContext context)
+        //private readonly IRepository<Product> _repository;
+        private readonly IUnitOfWork _unitOfWork;
+        public ProductsController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            _unitOfWork = unitOfWork;
         }
 
+        [HttpGet("products/{id}")]
+        public ActionResult<IEnumerable<Product>> GetProductByCategory(int id)
+        {
+            var product = _unitOfWork.ProductRepository.GetProductsByCategory(id);
+
+            if (product is null)
+            {
+                return NotFound("Product not found");
+            }
+            return Ok(product);
+        }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> Get()
+        public ActionResult<IEnumerable<Product>> Get()
         {
-            return await _context.Products!.AsNoTracking().ToListAsync(); 
-        }
+            var products = _unitOfWork.ProductRepository.GetAll();
 
+            if (products is null)
+            {
+                return NotFound("Products not found");
+            }
+
+            return Ok(products);
+        }
         [HttpGet("{id:int:min(1)}", Name="GetProduct")]
-        public async Task<ActionResult<Product>> Get(int id)
+        public ActionResult<Product> Get(int id)
         {
-            var product = await _context.Products?.FirstOrDefaultAsync(p => p.Id == id);
+            var product = _unitOfWork.ProductRepository.Get(c => c.Id == id);
 
             if (product is null)
             {
@@ -38,11 +57,11 @@ namespace APICatalogue.Controllers
         [HttpPost]
         public ActionResult Post(Product product)
         {
-            if (product is Product)
+            if (product is null)
                 return BadRequest();
 
-            _context.Products.Add(product);
-            _context.SaveChanges();
+            _unitOfWork.ProductRepository.Create(product);
+            _unitOfWork.Commit();
 
             return new CreatedAtRouteResult("GetProduct", new { id = product.Id }, product);
         }
@@ -53,8 +72,8 @@ namespace APICatalogue.Controllers
             if (id != product.Id)
                 return BadRequest();
 
-            _context.Entry(product).State = EntityState.Modified;
-            _context.SaveChanges();
+            _unitOfWork.ProductRepository.Update(product);
+            _unitOfWork.Commit();
 
             return Ok(product);
 
@@ -63,16 +82,17 @@ namespace APICatalogue.Controllers
         [HttpDelete("{id:int:min(1)}")]
         public ActionResult Delete(int id)
         {
-            var product = _context.Products?.FirstOrDefault(p => p.Id == id);
-            
+            var product = _unitOfWork.ProductRepository.Get(c => c.Id == id);
+
             if (product is null)
             {
-                return NotFound("Product not found");
+                return NotFound("Category not found");
             }
-            _context.Products?.Remove(product);
-            _context.SaveChanges();
 
-            return Ok(product);
+            var deletedProduct = _unitOfWork.ProductRepository.Delete(product);
+            _unitOfWork.Commit();
+
+            return Ok(deletedProduct);
         }
     }
 }
