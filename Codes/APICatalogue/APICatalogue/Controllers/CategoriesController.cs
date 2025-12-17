@@ -1,14 +1,10 @@
-﻿using APICatalogue.Filters;
-using Repositories;
-using Context;
+﻿using Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Models;
 using APICatalogue.DTOs.Mappings;
 using DTOs;
 using Newtonsoft.Json;
 using Pagination;
-using AutoMapper;
 using X.PagedList;
 using Microsoft.AspNetCore.Authorization;
 

@@ -1,9 +1,4 @@
-﻿using APICatalogue.Validations;
-using Models;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace DTOs
+﻿namespace DTOs
 {
     public class ProductDTOUpdateResponse
     {

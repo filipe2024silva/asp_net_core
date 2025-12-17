@@ -1,6 +1,4 @@
-﻿using Repositories;
-
-namespace Repositories
+﻿namespace Repositories
 {
     public interface IUnitOfWork
     {

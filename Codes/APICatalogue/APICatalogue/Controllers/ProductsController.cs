@@ -1,12 +1,8 @@
-﻿using APICatalogue.DTOs;
-using AutoMapper;
-using Context;
+﻿using AutoMapper;
 using DTOs;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.EntityFrameworkCore;
 using Models;
 using Newtonsoft.Json;
 using Pagination;
@@ -83,6 +79,7 @@ namespace APICatalogue.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ProductDTO>>> Get()
         {
             var products = await _unitOfWork.ProductRepository.GetAllAsync();

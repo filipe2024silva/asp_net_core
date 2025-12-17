@@ -1,6 +1,4 @@
-﻿using Pagination;
-
-namespace Pagination
+﻿namespace Pagination
 {
     public class CategoriesFilterName : QueryStringParameters
     {
