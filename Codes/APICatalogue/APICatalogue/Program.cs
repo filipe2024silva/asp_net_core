@@ -1,3 +1,4 @@
+using APICatalogue.DTOs.Mappings;
 using APICatalogue.Extensions;
 using APICatalogue.Filters;
 using Context;
@@ -14,7 +15,10 @@ builder.Services.AddControllers(options =>
 }).AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-});
+}).AddNewtonsoftJson();
+
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication("Bearer").AddJwtBearer();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -36,6 +40,8 @@ builder.Logging.AddProvider(new Logging.CustomerLoggerProvider(new Logging.Custo
 {
     LogLevel = LogLevel.Information
 }));
+
+builder.Services.AddAutoMapper(typeof(ProductDTOMappingProfile));// Could be Program Class. Add AutoMapper, scanning for profiles in the main assembly
 
 var app = builder.Build();
 

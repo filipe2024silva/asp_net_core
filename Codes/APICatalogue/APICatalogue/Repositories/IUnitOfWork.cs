@@ -6,6 +6,6 @@ namespace Repositories
     {
         IProductRepository ProductRepository { get; }
         ICategoryRepository CategoryRepository { get; }
-        void Commit();
+        Task CommitAsync();
     }
 }

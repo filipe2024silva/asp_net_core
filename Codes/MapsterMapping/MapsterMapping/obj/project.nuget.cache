@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "dBun9Zix+rk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\MapsterMapping.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\filipe.silva\\.nuget\\packages\\mapster\\7.4.0\\mapster.7.4.0.nupkg.sha512",
+    "C:\\Users\\filipe.silva\\.nuget\\packages\\mapster.core\\1.2.1\\mapster.core.1.2.1.nupkg.sha512",
+    "C:\\Users\\filipe.silva\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.2\\microsoft.aspnetcore.openapi.9.0.2.nupkg.sha512",
+    "C:\\Users\\filipe.silva\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

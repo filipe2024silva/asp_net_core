@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|c:\\users\\filipe.silva\\documentos\\asp_net_core\\codes\\mapstermapping\\mapstermapping\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|solutionrelative:mapstermapping\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|c:\\users\\filipe.silva\\documentos\\asp_net_core\\codes\\mapstermapping\\mapstermapping\\mappings\\mpasterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|solutionrelative:mapstermapping\\mappings\\mpasterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|c:\\users\\filipe.silva\\documentos\\asp_net_core\\codes\\mapstermapping\\mapstermapping\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|solutionrelative:mapstermapping\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|c:\\users\\filipe.silva\\documentos\\asp_net_core\\codes\\mapstermapping\\mapstermapping\\entities\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|solutionrelative:mapstermapping\\entities\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|c:\\users\\filipe.silva\\documentos\\asp_net_core\\codes\\mapstermapping\\mapstermapping\\entities\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|solutionrelative:mapstermapping\\entities\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|c:\\users\\filipe.silva\\documentos\\asp_net_core\\codes\\mapstermapping\\mapstermapping\\dtos\\companydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|solutionrelative:mapstermapping\\dtos\\companydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|c:\\users\\filipe.silva\\documentos\\asp_net_core\\codes\\mapstermapping\\mapstermapping\\dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C892451E-BA32-4C59-BB5B-C27B50583D1E}|MapsterMapping\\MapsterMapping.csproj|solutionrelative:mapstermapping\\dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\Program.cs",
+              "RelativeDocumentMoniker": "MapsterMapping\\Program.cs",
+              "ToolTip": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\Program.cs",
+              "RelativeToolTip": "MapsterMapping\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T11:29:37.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MpasterConfig.cs",
+              "DocumentMoniker": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\Mappings\\MpasterConfig.cs",
+              "RelativeDocumentMoniker": "MapsterMapping\\Mappings\\MpasterConfig.cs",
+              "ToolTip": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\Mappings\\MpasterConfig.cs",
+              "RelativeToolTip": "MapsterMapping\\Mappings\\MpasterConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T11:11:02.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CompanyDTO.cs",
+              "DocumentMoniker": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\DTOs\\CompanyDTO.cs",
+              "RelativeDocumentMoniker": "MapsterMapping\\DTOs\\CompanyDTO.cs",
+              "ToolTip": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\DTOs\\CompanyDTO.cs",
+              "RelativeToolTip": "MapsterMapping\\DTOs\\CompanyDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T11:10:23.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EmployeeDTO.cs",
+              "DocumentMoniker": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\DTOs\\EmployeeDTO.cs",
+              "RelativeDocumentMoniker": "MapsterMapping\\DTOs\\EmployeeDTO.cs",
+              "ToolTip": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\DTOs\\EmployeeDTO.cs",
+              "RelativeToolTip": "MapsterMapping\\DTOs\\EmployeeDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T11:09:02.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Company.cs",
+              "DocumentMoniker": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\Entities\\Company.cs",
+              "RelativeDocumentMoniker": "MapsterMapping\\Entities\\Company.cs",
+              "ToolTip": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\Entities\\Company.cs",
+              "RelativeToolTip": "MapsterMapping\\Entities\\Company.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T11:07:27.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Address.cs",
+              "DocumentMoniker": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\Entities\\Address.cs",
+              "RelativeDocumentMoniker": "MapsterMapping\\Entities\\Address.cs",
+              "ToolTip": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\Entities\\Address.cs",
+              "RelativeToolTip": "MapsterMapping\\Entities\\Address.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T11:06:14.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\Entities\\Employee.cs",
+              "RelativeDocumentMoniker": "MapsterMapping\\Entities\\Employee.cs",
+              "ToolTip": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMapping\\MapsterMapping\\Entities\\Employee.cs",
+              "RelativeToolTip": "MapsterMapping\\Entities\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T11:05:00.49Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

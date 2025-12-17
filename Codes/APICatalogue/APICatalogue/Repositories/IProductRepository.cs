@@ -1,10 +1,15 @@
 ﻿using Models;
+using Pagination;
 using System.Numerics;
+using X.PagedList;
 
 namespace Repositories
 {
     public interface IProductRepository : IRepository<Product>
     {
-        IEnumerable<Product> GetProductsByCategory(int categoryId);
+        //IEnumerable<Product> GetProducts(ProductsParameters productsParameters);
+        Task<IPagedList<Product>> GetProductsAsync(ProductsParameters productsParameters);
+        Task<IPagedList<Product>> GetProductsFilterPriceAsync(ProductsFilterPrice productsFilterParams);
+        Task<IEnumerable<Product>> GetProductsByCategoryAsync(int categoryId);
     }
 }

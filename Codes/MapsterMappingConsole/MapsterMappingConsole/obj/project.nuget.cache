@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "9jLGwl0EIjo=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\filipe.silva\\Documentos\\asp_net_core\\Codes\\MapsterMappingConsole\\MapsterMappingConsole\\MapsterMappingConsole.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\filipe.silva\\.nuget\\packages\\mapster\\7.4.0\\mapster.7.4.0.nupkg.sha512",
+    "C:\\Users\\filipe.silva\\.nuget\\packages\\mapster.core\\1.2.1\\mapster.core.1.2.1.nupkg.sha512"
+  ],
+  "logs": []
+}
