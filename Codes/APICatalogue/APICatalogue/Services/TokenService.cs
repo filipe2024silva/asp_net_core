@@ -12,7 +12,7 @@ namespace Services
         {
             var key = _config.GetSection("JWT").GetValue<string>("SecretKey") ?? throw new InvalidOperationException("Invalid secret key");
 
-            var privateKey = System.Text.Encoding.UTF8.GetBytes(key);
+            var privateKey = Encoding.UTF8.GetBytes(key);
 
             var sgningCredentials = new SigningCredentials(new SymmetricSecurityKey(privateKey), SecurityAlgorithms.HmacSha256Signature);
 

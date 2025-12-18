@@ -28,12 +28,13 @@ namespace APICatalogue.Controllers
         }
 
         [HttpPost]
-        [Route("Login")]
+        [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            var user = await _userManager.FindByNameAsync(model.Username);
 
-            if (user is not null && await _userManager.CheckPasswordAsync(user, model.Password))
+            var user = await _userManager.FindByNameAsync(model.Username!);
+
+            if (user is not null && await _userManager.CheckPasswordAsync(user, model.Password!))
             {
                 var userRoles = await _userManager.GetRolesAsync(user);
 
@@ -72,7 +73,7 @@ namespace APICatalogue.Controllers
         }
 
         [HttpPost]
-        [Route("Register")]
+        [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
             var userExists = await _userManager.FindByNameAsync(model.Username);

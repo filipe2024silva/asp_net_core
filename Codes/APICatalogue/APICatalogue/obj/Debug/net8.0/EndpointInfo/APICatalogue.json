@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "paths": {
-    "/Auth/Login": {
+    "/Auth/login": {
       "post": {
         "tags": [
           "Auth"
@@ -41,7 +41,7 @@
         }
       }
     },
-    "/Auth/Register": {
+    "/Auth/register": {
       "post": {
         "tags": [
           "Auth"

@@ -7,6 +7,6 @@ namespace Services
     {
         JwtSecurityToken GenerateAccessToken(IEnumerable<Claim> claims, IConfiguration _config);
         string GenerateRefreshToken();
-        ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token, IConfiguration _config);
+        ClaimsPrincipal GetPrincipalFromExpiredToken(string token, IConfiguration _config);
     }
 }

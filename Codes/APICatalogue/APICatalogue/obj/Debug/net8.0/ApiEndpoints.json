@@ -2,7 +2,7 @@
   {
     "ContainingType": "APICatalogue.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "Auth/Login",
+    "RelativePath": "Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -34,7 +34,7 @@
   {
     "ContainingType": "APICatalogue.Controllers.AuthController",
     "Method": "Register",
-    "RelativePath": "Auth/Register",
+    "RelativePath": "Auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
