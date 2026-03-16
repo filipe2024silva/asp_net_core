@@ -1,0 +1,45 @@
+Tempo de vida útil dos Serviços
+
+Quando registamos serviços em um container, precisamos definir o tempo de vida que queremos usar para este serviço.
+O tempo de vida do serviço controla por quanto tempo um objeto vai existir após ter sido criado pelo container
+O tempo de vida pode ser definido usando o metodo de extensão apropriado no IServiceCollection ao registar o serviço.
+
+Transient: São criados cada vez que são solicitados. Cada vez que se injeta o serviço em uma classe, será criada uma nova instância do serviço. É indicado
+para serviços leves e sem estado.
+São registados usando o metodo AddTransient
+
+Scoped: São criados em cada solicitação (uma vez por solicitação do cliente). É indicado para aplicações WEB.
+Se durante um request se usar a mesma injecção de dependência em muitos lugares, vai-se usar a mesma instância dos objetos, 
+e ele fará referencia á mesma alocação de memória.  
+São registados usando o método AddScoped
+
+Singleton: São criados uma vez durante a vida útil da aplicação que usa a mesma instância para toda a aplicação.
+São registados usando o método AddSingleton
+
+CONTROLADORES
+
+Um controlador é uma classe que é responsável por lidar com as requisições HTTP e atua como intermediário 
+entre as requisições feitas por clientes(como navegadores da web, aplicações móveis ou outros serviçoes) 
+e a logica de negócios que processa essas requisições.
+
+WeatherForecastController
+
+WeatherForecast é o prefixo que identifica o controlador e é usado como parte da rota base definida pelo atibuto [Route]
+Controller é o sufixo presente no nome do controlador
+[Route("[conroller]")]
+
+Nota: Um record é um tipo de classe optimizada para representar dados imutáveis de forma simples.
+
+Código status HTTP usados nos responses (Tratamento de erros)
+200 - OK
+201 - Created
+202 - Accepted
+204 - No Content
+304 - Not Modified
+400 - Bad Request
+401 - Unauthorized
+403 - Forbidden
+404 - Not Found
+409 - Conflit
+500 - Internal Server Error
+
