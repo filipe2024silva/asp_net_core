@@ -43,3 +43,134 @@ Código status HTTP usados nos responses (Tratamento de erros)
 409 - Conflit
 500 - Internal Server Error
 
+Abordagem Code-First: Parte das entidades para criar as tabelas e a base dados
+Padrão Repositório (desacopolar o acesso aos dados da aplicação)
+
+Nomenclatura
+Projeto - CatalogoApi
+Controllers - ProdutosController, CategoriasController, UtilizadoresController
+Actions - GET, PUT, POST e DELETE: HttpGet, HttpPost, HttpPut e HttpDelete
+
+Instância de um recurso(no plural) - /v1/api/produtos, v1/api/categorias, v1/api/utilizadores
+
+Arquitetura em Camadas
+
+- Camada de Apreentação: A camada de mais nível superior da aplicação é a interface com o utilizador.
+A principal função da interface é traduzir tarefas e resultados para alguma coisa que o utilizador possa compreender.
+
+- Cama de Negócios: Esta camada coordena a aplicação, processa comandos, toma decisões lógicas, faz avaliações e realiza cálculos.
+Ela também transfere e processa dados entre as camadas de dados e a camada de apresentação.
+
+- Camada de Acesso a Dados - Na camada de acesso a dados a informação é armazenada e retornada de uma fonte de dados.
+A informação é então passada de volta para a camada de negócios para processamento e então apresentada ao utilizador.
+
+1- Presentation: Blazor, Views, Mobile, Desktop
+2 - Service - Classes de serviços
+3 - Business Logic/Application Core - Repositorios, Dominio, Serviços
+4 - Data Access/Persistence - Ef Core, MySql
+
+EF Core Migrations
+O recurso Migrations no EF Core oferece uma maneira de atualizar de forma incremental o esquema de banco de dados para 
+mantê-lo em sincronia com o modelo de dados do aplicativo, preservando os dados existentes no banco de dados.
+
+Data Annotations
+São um conjunto de atributos que podem ser aplicados a classes e seus membros para fornecer metadados 
+sobre como esses recursos devem ser tratados pelo sistema.
+- Realizar validações de entrada de dados
+- Influenciar o comportamento do modelo de dados
+- Os atributos Data Annotations podem subscrever as convenções usadas pelo EF Core
+
+Atributos:  Key - Identifica a propriedade como uma chave primaria na tabela
+		    Table("nome") - Define o nome da tabela para a qual a classe será mapeada
+			Column - Define a coluna na tabela para a aqual a propriedade será mapeada
+			DataType - Associa um tipo de dados adicional a uma propriedade
+			ForegnKey - Especifica que a propriedade é usada como chave estrangeira
+			NotMapped - Exclui a propriedade mapeamento
+			StringLength - Define o tamanho minimo e máximo permitido para o tipo
+			Required - Especifica que o valor do campo é obrigatório(NOT NULL)
+			
+Popular tabelas com dados
+1 - Incluir dados manualmente usando a instrução INSERT INTO
+2 - Criar usar o método OnModelCreating do arquivo de contexto e definir o código usando 
+a propriedade HasData do EF Core para preencher as tabelas com dados.
+3 - Criar um método estático e definir o código para incluir dados usando o  método AddRange() do EF Core
+4 - Criar uma migração vazia usando o Migrations e usar os métodos Up() e Down() definindo nestes métodos as instruções INSERT INTO para incluir dados nas tabelas
+
+Controllers
+
+[Route("[controller]")]
+[ApiController]
+public class TesteController: ControllerBase
+{
+	//método Action
+}
+
+O atributo [ApiController] permite decorar os controladores habilitando recursos como:
+- Requisito de roteamento de atributo;
+- Respostas HTTP 400 automáticas(Validação do Model State)
+- Inferência de parâmetro de origem de associação
+- Inferência de solicitação de dados de várias partes/formulário
+- Uso de Problem Details para códigos de status de erro
+
+O atributo [Route] especifica um padrao de URL para acessar um controller ou Action [Route("[Controller]")] -> indica a rota com o nome do controlador(teste)
+
+Optimizando o código nas consultas com HTTP GET
+Quando consultamos entidades usando o entity framework ele armazena as entidades no contexto(em cahce) realizando o tracking
+ou rastreamento das entidades para acompanhar o estado das entidades
+Este recurso adiciona sobrecarga que afeta o desempenho das consultas rastreadas. Para melhorar o desempenho podemos usar 
+o método: AsNoTracking()
+
+var produtos = _context.Produtos.AsNoTracking().ToList();
+
+Usar AsNoTracking() apenas para consultas somente leitura sem a necessidade de alterar os dados.
+
+Otimizando o desempenho
+-> Nunca retornar todos os registos em uma consulta
+	_context.Produtos.Take(10).ToList();
+	
+-> Nunca retornar objetos relacionados sem aplicar um filtro
+	_context.Categorias.Include(p=>p.Produtos).Where(c=>c.CategoriaId <= 5).ToList();
+	
+Padrões de Roteamento
+[Route("[controller]")] /produtos  /categorias
+[Route("api/[controller]")]  /api/produtos  /api/categorias
+
+Combinar o template da rota com a rota definida no atributo Route
+[HttpGet("primeiro")]  /produtos/primeiro
+
+Combinar o parâmetro com a rota definida no atributo Route
+[HttpGet("{id}")]  /produtos/{id}
+
+Ignorar a rota definida no atributo Route
+[HttpGet("/primeiro")]  /primeiro
+
+Definir um segundo parâmetro obrigatório
+[HttpGet("{id}/{param2}")]  /produtos/{id}/{param2}
+
+Restriçoes de rotas que verificam o tipo de dados(deve-se usar apenas para destinguir 2 rotas parecidas)
+
+int - {id:int} - Restringe um parâmetro de rota para apresentar apenas valores inteiros de 32 bits
+alpha - {id:alpha} - Restringe um parâmetro de rota para conter apenas letras minusculas ou maiusculas de A a Z
+bool - {id:bool} - restringe um parametro de rota para apresentar apenas valores booleanos
+datetime - {id:datetime}
+decimal - {id:decimal}
+double - {id:double}
+float - {id:float}
+guid - {id:guid}
+length(valor) - {id:length(5)}
+range(min, max) - {id:range(5,10)}
+
+Model Binding
+
+O model binding ou vinculação de modelos é um recurso que nos permite mapear dados de uma requisição HTTP 
+para parâmeros de uma Action de um Controlador.
+Esse mapeamento inclui todos os tipos de parâmetros: números, strings, arrays, listas, tipos complexos, 
+listas de objetos, etc.
+
+Como Funciona?: Quando nossa API recebe uma requisição HTTP, ela a roteia para um método Action específico de um controlador com base na rota definida.
+Ela determina qual o método Action será executado com base no que está definido na rota e , em seguida, vincula os valores da requisição HTTP aos parâmetros desse método Action.
+
+1 - Valores formulário: (POST e PUT) - Enviados no corpo do request
+2 - Rotas: [Route("api/[Controller]")] ou HttpGet("{id}")
+3 - Query Strings: api/produtos/4?nome=Sumo&ativo=true
+
