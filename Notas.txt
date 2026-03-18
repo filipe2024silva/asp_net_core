@@ -174,3 +174,72 @@ Ela determina qual o método Action será executado com base no que está defini
 2 - Rotas: [Route("api/[Controller]")] ou HttpGet("{id}")
 3 - Query Strings: api/produtos/4?nome=Sumo&ativo=true
 
+Niveis de Log
+
+Critical
+Debug - 
+Error -
+Information - 
+None - 
+Trace - 
+Warning - 
+
+Repository
+- Minimiza a lógica de consultas na aplicação evitando consultas espalhadas pelo código(encapsula a lógica das consultas 
+no repositório)
+- Desacopla a aplicação dos frameworks de persistência como o EF Core(é possível substituir o framework usado facilmente)
+- Facilita a realização de testes unitários no projeto(usando repositório fake)
+
+. Usar IEnumerable, fornece uma abtração mais genérica que não impõe uma estrutura especifica de coleção. 
+Com tipo retorno IEnumerable, este pode ser listas, dicionários, etc.
+
+ .IQueryable representa a seleção de todos os dados de um objeto presentes no banco de dados. Permite posteriormente
+ mudar/filtrar as consultas. A função GetProdutos() tem retorno tipo IQueryable
+ ex: GetProdutos().Where(p=>p.Preco>50)
+	 GetProdutos().OrderBy(p=>p.Nome)
+	 etc...
+	 
+	 Sem Repositório
+	 
+	 Controller(DbContext) ------> Database
+	 
+	 Repositório Específico
+	 
+	 Controller -----------------> ProdutoRepository(DbContext) ------------->
+																				Database
+	 Controller -----------------> CategoriaRepository(DbContext) ----------->
+	 
+	 Repositório Genérico
+	 
+	 Controller -----------------> 
+	 
+	 Controller -------------------- Repository ----><--- CategoriaRepository
+				Database   <-------- (DbContext)             (DbContext)
+												 <--- ProdutoRepository ------> Database
+														 (DbContext)
+	 
+Unit Of Work
+
+- Gerir as transações
+- Ordenar o CRUD na base dados
+- Impedir a concorrência(duplicação de atualizações)
+- Usar somente uma instância do contexto por requisição
+
+Os repositórios são responsáveis por realizar operações de leitura e escrita na base dados, mas não devem chamar o SaveChanges.
+Eles simplesmente interagem com o DbContext, modificam objetos e preparam as mudanças para persistência.
+A Unit of Work é responsável por gerir transações e, mais importane, por chamar o SaveChanges.
+Ela é quem inicia, confirma ou reverte a transação e garante que todas as operações realizadas nos 
+repositórios sejam incluídas em uma única transação da base de dados.
+
+Lazy Loading: significa adiar a obtenção dos objetos até que sejam relamente necessários.
+
+DTO - Data Transfer Objects
+
+- É um conainer de dados usado para transportar dados entre diferentes partes ou camadas de uma aplicação 
+que define como os dados serão enviados pela rede.
+Permite ocultar propriedades específicas do modelo de entidades por questão de segurança ou para reduzir o tamanho da carga
+para melhorar o desempenho
+
+Permite personalizar as informações que serão transmitidas e exibidas
+Permite proteger as entidades contra injeção de dados restringindo as informações que são expostas na camada de apresentação.
+

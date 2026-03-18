@@ -1,0 +1,9 @@
+﻿namespace Mapeamento_Resolvers.Entities;
+
+public class Funcionario
+{
+    public int Id { get; set; }
+    public string? Nome { get; set; }
+    public decimal Salario { get; set; }
+    public DateTime Nascimento { get; set; }
+}
