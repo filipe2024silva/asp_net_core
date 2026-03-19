@@ -243,3 +243,47 @@ para melhorar o desempenho
 Permite personalizar as informações que serão transmitidas e exibidas
 Permite proteger as entidades contra injeção de dados restringindo as informações que são expostas na camada de apresentação.
 
+Um método assíncrono que retorna Task permite que se aguarde a conclusão da operação assíncrona usando o await, e isso é útil 
+quando se deseja esperar que a operação seja concluída antes de continuar com o restante código. Se usar void o código continua
+mesmo que esteja a executar uma chamada asssincrona. Só se deve usar void caso o que esteja a ser executado não precise de ser esperado.
+ex: public async Task MeuMetodo()    public async void MeuMetodo()
+
+Autenticação e Autorização
+
+1 - Anónimo: Uma requisição anínima não contem informações de autenticação
+2 - Basic - A autenticação básica envia uma cadeia de carateres codificada em Base64 que contem um nome de utilizador e senha para o cliente
+3 - Tokens(Bearer) - É um esquema de autenticação HTTP que envolve tokens de segurança chamados tokens de portador.(bearer token)
+
+Bearer Token: é uma string codificada, geralmente gerada pelo servidor em resposta a uma requisição de login.
+
+JWT - JSON Web Token
+-Padrão que define uma forma segura de transmitir informações entre duas partes.
+-A trasmissão pode ser feita via URL, POST, ou em cabeçalho HTTP e a informação é assinada digitalmente por um algoritmo
+ou par de chaves public/privada usando RSA(sistema de criptografia de chave publica)
+-São usado assim tokens criptografados para permitir o acesso aos recursos de uma Web Api - (abordagem conhecida como Bearer Authentication)
+
+Token JWT
+Header - Contém o tipo de token(JWT) e a criptografia usada(HMAC ou RSA)
+Payload - Contém os pedidos. São declarações ou claims associadas ao utilizador do token
+Signature - Assinatura usada na validação do token usando uma chave secreta
+
+Para gerar a assinatura usamos o Header e o Pauload codificando-os e a seguir assinamos usando o algoritmo definido.
+
+Etapas do proesso da implementação da autenticação via token JWT
+
+1. Geração do Token(Refresh Token)
+- verificar credenciais do utilizador(login)
+- definir as claims do utilizador
+- definir a chave secreta e o algoritmo de encriptação usado(HmacSha256)
+- Gerar o token com base no emissor, audiência, claims, chave secreta e feinir data de expiração do token
+
+2. Validação do token(middleware)
+- validar emissor(quem emite o token)
+- validar audiência (quem pode usar o token)
+- validar assinatura com chave secreta
+- validar tempo de vida(tempo de expiração do token)
+
+pacote - Microsoft.AspNetCore.Authentication.JwtBearer
+
+
+
