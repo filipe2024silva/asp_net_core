@@ -285,5 +285,53 @@ Etapas do proesso da implementação da autenticação via token JWT
 
 pacote - Microsoft.AspNetCore.Authentication.JwtBearer
 
+_ = ... -> é im discard usado para quando o retorno não interrada guardar o valor, assim não é alocado memória.
+ex: _ = int.TryParse(_configuration["JWT:RefreshTokenValidityInMinutes"], out int refreshTokenValidityInMinutes);
 
+CORS(Cross-Origin Resource Sharing)
+É um conjunto de regras e mecanismos que permitem ou restringem requisiçoes de recursos entre origens diferentes em aplicações web.
 
+Ordem do middleware: Pipeline de processamento de request
+
+ExceptionHandler -> HSTS -> HttpsRedirection -> Static Files -> Routing -> CORS -> Authentication -> Authorization
+-> Custom middlewares(Custom1 -> Custom2 -> ...) -> Endpoint
+
+lIMITAÇÃO DE TAXA OU RATE LIMITING
+Consiste em retringir o número de requisições que podem ser feitas em um período de tempo a uma aplicação
+Motivação: 	- Evitar a sobrecarga de servidores ou aplicativos
+			- Melhorar a segurança e protege contra ataques de negaçao de serviço(DDoS)
+			- Reduzir custos evitando o uso desnecessário de recursos
+			
+Controlar a taxa na qual os clientes podem fazer requisições aos endpoints da sua API é uma importante medidad de segurança que permite
+evitar ataques mal-intencionados
+
+VERSIONAMENTO DE SOFTWARE
+
+Os números de versão geralmente seguem um padrão como o parão Major.Minor.Patch
+
+1. Major: Aumentado quando são feitas alterações sgnificativas, como adição de grandes funcionalidades, mudanças arquiteturais
+ou alterações incompatíveis com versões anteriores.
+
+2. Minor: Aumentado para adições de funcionalidades menores ou melhorias, geralmente compatíveis com versões anteriores.
+
+3. Patch: Aumentado para correções de bugs ou pequenas melhorias que não afetam a compatibilidade com versões anteriores.
+
+TESTES UNITÁRIOS
+Os testes unitários devem testar somente o código dentro do controle do programador. Eles não devem testar preocupações como:
+base de dados, sistemas de arquivos e recursos de rede.
+Por exemplo, Test Driven Development(TDD) é um teste de unidade escrito antes que o código seja verificado. O TDD é como criar
+um esboço para um livro antes de escreve-lo e destina-se a ajudar os programadores a escrever código mais simples,
+mais legivel e eficiente.
+
+[Fact] -> Atributo aplicado ao método de teste para indicar que ele deve ser executado pelo Test Runner
+public void Metodo()
+{
+	// Arrange -> Preparação onde são configuradas os recursos necessários ao teste: criação de objectos, etc..
+	...código
+	
+	// Act -> Executa a ação de testar ou seja executa o teste preparado
+	...código
+	
+	// Assert -> faz a verificação e validação se a ação do teste foi correta. 
+	Assert.          Comparamos o que era esperado com o resultado final do teste.
+}
