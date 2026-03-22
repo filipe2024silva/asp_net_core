@@ -335,3 +335,47 @@ public void Metodo()
 	// Assert -> faz a verificação e validação se a ação do teste foi correta. 
 	Assert.          Comparamos o que era esperado com o resultado final do teste.
 }
+
+ARQUITETURAS
+
+-> Arquitetura Hexagonal(Ports and Adapters)
+-> Screaming Architecture
+-> Arquitetura Cebola(Onion Architecture)
+-> Clean Architecture
+
+TEM DE SER:
+
+- Independente de frameworks
+- Testável
+- Independente da Cama de Apresentação(UI)
+- Independente da Base Dados
+- Independente de fatores externos
+
+Projeto Catalogo:
+Catalogo.Domain: Modelo de dominio, Interfaces, regras de negócio - sem referencias
+Catalogo.Application: Regas de aplicação, serviços, mapeamentos, DTOs - referencia ao Domain
+Catalogo.Infrastructure: Lógica acesso a dados, contexto, Configurações, ORM - referencia ao Domain
+Catalogo.CrossCuting: IoC, Registo dos serviços e recuros, DI - referencia a Domain, Infrastructure e Application
+Catalogo.API: Controladores, endpoints, filtros - referencia ao CrossCuting
+
+Tipos de projeto
+Catalogo.API: ASP .NET Core Web API
+Demais projetos: Class Library
+
+CACHE(MemoryCache)
+O cache é um mecanismo que armazena cópias de dados frequentemente acessados 
+em um local de acesso mais rápido do que a fonte original.
+Uma técnica usada para armazenar temporariamente dados ou respostas acessadas com frequência, com o objetivo de melhorar o desempenho
+e reduzir a carga nos recursos computacionais, como a base dados ou serviçoes externos.
+
+Quando usar?:
+- Para dados frequentemente acessados e raramente alterados
+- Para listas de configurações ou opções
+- Melhorar o desempenho reduzindo consultas repetitivas á base de dados
+
+Quando Não usar?: 
+- Quando os dados forem sensiveis ou criticos e precisam sempre ser atualizados
+- Quando a aplicação depende de respostas baseadas em tempo real
+- Quando o consumo de memória do servidor for um fator critico
+
+ 
